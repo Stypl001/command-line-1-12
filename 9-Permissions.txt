@@ -1,1 +1,304 @@
+# Concepts addressed:
+directory, file permmision, perameter
 
+Last login: Thu Mar 28 14:30:25 on ttys000
+
+grnq61-88:~ stypl001$ file /etc/shadow
+
+/etc/shadow: cannot open `/etc/shadow' (No such file or directory)
+
+grnq61-88:~ stypl001$ less /etc/shadow
+
+/etc/shadow: No such file or directory
+
+grnq61-88:~ stypl001$ id
+
+uid=551243877(stypl001) gid=1116625352(UWP\Domain Users) groups=1116625352(UWP\Domain Users),12(everyone),62(netaccounts),15437533(UWP\DL_STU-ENRL-CURANDFTR_A),338436073(UWP\2023-SPRG-PHYS-110-001),357341339(UWP\2023-SPRG-CRMJ-490-001),373726863(UWP\2024-SPRG-CRMJ-200-001),543663027(UWP\2022-SPRG-ENGL-101-002),573945132(UWP\DL_ALL-ENRL-CUR-TRM_A),776471477(UWP\2023-FALL-PHYS-306-001),800300959(UWP\2022-SPRG-GSCI-102-001),860069916(UWP\2021-FALL-PHIL-101-001),950897543(UWP\2023-SPRG-PHYS-202-001),955714478(UWP\2023-FALL-MATH-317-001),1148305530(UWP\2024-SPRG-PHYS-441-002),1179213447(UWP\DL_ALL-ENRL-P2-CUR-F1_A),1316376083(UWP\2024-SPRG-CRMJ-368-001),1676053397(UWP\2022-FALL-PHYS-201-001),1745919347(UWP\2022-SPRG-MATH-114-003),1900271714(UWP\2023-SPRG-MATH-222-001),122353826(UWP\2023-SPRG-HIST-102-001),320954910(UWP\2023-FALL-CRMJ-388-001),490627262(UWP\2021-FALL-ENGL-100-007),781848860(UWP\2024-SPRG-GEOG-105-001),884829712(UWP\DL_ALL-EMPL-STUD_A),932694530(UWP\2023-FALL-PHYS-205-001),984365624(UWP\2024-SPRG-PHYS-241-001),1075185284(UWP\Duo Students),1162173356(UWP\DL_STU-ENRL-ALL-FTR_A),1403567360(UWP\2021-FALL-MATH-111-009),1427030562(UWP\Student Users),1458473519(UWP\2021-FALL-UWP-101-013),1483517000(UWP\2022-SPRG-CRMJ-101-001),1516323181(UWP\2022-FALL-PSYC-101-001),1852779089(UWP\2023-FALL-MATH-222-001),1972996088(UWP\2022-FALL-MATH-221-002),1981629663(UWP\DL_STU-ENRL-CUR-UGRD_A),2014088786(UWP\2023-FALL-CRMJ-340-001),2117505621(UWP\2022-FALL-CRMJ-233-001),2124421418(UWP\PSO All Campus),702(com.apple.sharepoint.group.2),701(com.apple.sharepoint.group.1),333250915(UWP\Publisher),376089144(UWP\CTX-Mathematica),1102773013(UWP\Windows Explorer),1535688893(UWP\PS Elements),1953500456(UWP\Parkside-Campus Info-traverse),2110368857(UWP\SSH),178840370(UWP\Internet Explorer),183735245(UWP\Accessories),336527048(UWP\CreativeServices-Public-full),714050089(UWP\InfoPath),739946822(UWP\Notepad_Plus),839023789(UWP\Visio),993404883(UWP\Project),1111887947(UWP\Parkside-Campus Info-Leadership-read),1289955258(UWP\Emergency List),1371522217(UWP\Adobe Reader),1432469368(UWP\Office),1458183425(UWP\Notepad),1875240670(UWP\IBM Director Client),2144369774(UWP\SPSS)
+
+grnq61-88:~ stypl001$ > foo.txt
+
+grnq61-88:~ stypl001$ ls -l foo.txt
+
+-rw-r--r--  1 stypl001  UWP\Domain Users  0 Mar 28 14:34 foo.txt
+
+grnq61-88:~ stypl001$ > foo.txt
+
+grnq61-88:~ stypl001$ ls -l foo.txt
+
+-rw-r--r--  1 stypl001  UWP\Domain Users  0 Mar 28 14:34 foo.txt
+
+grnq61-88:~ stypl001$ chmod 600 foo.txt
+
+grnq61-88:~ stypl001$ ls -l foo.txt
+
+-rw-------  1 stypl001  UWP\Domain Users  0 Mar 28 14:34 foo.txt
+
+grnq61-88:~ stypl001$ rm -f foo.txt
+
+grnq61-88:~ stypl001$ umask
+
+0022
+
+grnq61-88:~ stypl001$ > foo.txt
+
+grnq61-88:~ stypl001$ ls -l foo.txt
+
+-rw-r--r--  1 stypl001  UWP\Domain Users  0 Mar 28 14:35 foo.txt
+
+grnq61-88:~ stypl001$ rm foo.txt
+
+grnq61-88:~ stypl001$ umask 0000
+
+grnq61-88:~ stypl001$ > foo.txt
+
+grnq61-88:~ stypl001$ ls -l foo.txt
+
+-rw-rw-rw-  1 stypl001  UWP\Domain Users  0 Mar 28 14:36 foo.txt
+
+grnq61-88:~ stypl001$ rm foo.txt; umask 0002
+
+grnq61-88:~ stypl001$ su -
+
+Password:
+
+su: Sorry
+
+grnq61-88:~ stypl001$ exit
+
+logout
+
+Saving session...
+
+...copying shared history...
+
+...saving history...truncating history files...
+
+...completed.
+
+Deleting expired sessions...18 completed.
+
+ 
+
+[Process completed]
+
+Last login: Thu Mar 28 14:43:57 on ttys000
+
+grnq61-88:~ stypl001$ su -c 'ls -l /root/*'
+
+su: illegal option -- c
+
+usage: su [-] [-flm] [login [args]]
+
+grnq61-88:~ stypl001$ su -
+
+Password:
+
+su: Sorry
+
+grnq61-88:~ stypl001$ su -c 'ls -l /root/*'
+
+su: illegal option -- c
+
+usage: su [-] [-flm] [login [args]]
+
+grnq61-88:~ stypl001$ sudo backup_script
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ 
+
+grnq61-88:~ stypl001$ 
+
+grnq61-88:~ stypl001$ 
+
+grnq61-88:~ stypl001$ 
+
+grnq61-88:~ stypl001$ sudo -l
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ sudo cp myfile.txt ~tony
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ sudo ls -l ~tony/myfile.txt
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ sudo chown tony: ~tony/myfile.txt
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ sudo ls -l ~tony/myfile.txt
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ sudo mkdir /usr/local/share/Music
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ ls -ld /usr/local/share/Music
+
+ls: /usr/local/share/Music: No such file or directory
+
+grnq61-88:~ stypl001$ 
+
+grnq61-88:~ stypl001$ sudo chown :music /usr/local/share/Music
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ sudo chmod 775 /usr/local/share/Music
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ ls -ld  /usr/local/share/Music
+
+ls: /usr/local/share/Music: No such file or directory
+
+grnq61-88:~ stypl001$ > /usr/local/share/Music/test_file
+
+-bash: /usr/local/share/Music/test_file: No such file or directory
+
+grnq61-88:~ stypl001$ ls -l /usr/local/share/Music
+
+ls: /usr/local/share/Music: No such file or directory
+
+grnq61-88:~ stypl001$ sudo chmod g+s /usr/local/share/Music
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+Sorry, try again.
+
+Password:
+
+sudo: 3 incorrect password attempts
+
+grnq61-88:~ stypl001$ ls -l /usr/local/share/Music
+
+ls: /usr/local/share/Music: No such file or directory
+
+grnq61-88:~ stypl001$ umask 0002
+
+grnq61-88:~ stypl001$ rm /usr/local/share/Music/test_file
+
+rm: /usr/local/share/Music/test_file: No such file or directory
+
+grnq61-88:~ stypl001$ > /usr/local/share/Music/test_file
+
+-bash: /usr/local/share/Music/test_file: No such file or directory
+
+grnq61-88:~ stypl001$ mkdir /usr/local/share/Music/test_dir
+
+mkdir: /usr/local/share/Music: No such file or directory
+
+grnq61-88:~ stypl001$ ls -l /usr/local/share/Music
+
+ls: /usr/local/share/Music: No such file or directory
+
+grnq61-88:~ stypl001$ passwd
+
+Changing password for stypl001.
+
+Old Password:
+
+New Password:
+
+Retype New Password:
+
+passwd: general failure
+
+grnq61-88:~ stypl001$ 
