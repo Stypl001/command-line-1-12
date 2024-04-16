@@ -1,1 +1,48 @@
+ # Concepts addressed:
+script, comment, file permmission
 
+Last login: Thu Mar 14 14:45:33 on ttys000
+
+grnq61-82:~ stypl001$ printenv | less
+
+grnq61-82:~ stypl001$ printenv USER
+
+stypl001
+
+grnq61-82:~ stypl001$ set | less
+
+grnq61-82:~ stypl001$ echo $HOME
+
+/Users/stypl001
+
+grnq61-82:~ stypl001$ alias
+
+grnq61-82:~ stypl001$ foo="This is some "
+
+grnq61-82:~ stypl001$ echo $foo
+
+This is some
+
+grnq61-82:~ stypl001$ foo=$foo"text."
+
+grnq61-82:~ stypl001$ echo $foo
+
+This is some text.
+
+grnq61-82:~ stypl001$ gedit some_file
+
+-bash: gedit: command not found
+
+grnq61-82:~ stypl001$ nano .bashrc
+
+grnq61-82:~ stypl001$ nano .bashrc
+
+grnq61-82:~ stypl001$ source .bashrc
+
+grnq61-82:~ stypl001$ ll
+
+ls: illegal option -- -
+
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+
+grnq61-82:~ stypl001$ 
