@@ -1,1 +1,13 @@
+# Concepts addressed:
 
+Last login: Thu Mar 14 14:16:41 on ttys000
+
+grnq61-82:~ stypl001$ file /ect/shadow
+
+/ect/shadow: cannot open `/ect/shadow' (No such file or directory)
+
+grnq61-82:~ stypl001$ less /ect/shadow
+
+/ect/shadow: No such file or directory
+
+grnq61-82:~ stypl001$ clear
